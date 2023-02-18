@@ -1,0 +1,36 @@
+#main {
+    display: flex;
+    width: 100%;
+    height: 80px;
+    font-size: xx-large;
+    backdrop-filter: blur(5px);
+   
+    color: rgb(211, 234, 254);
+    -webkit-text-stroke: 1px black;
+    background-color: transparent;
+    z-index: 1;
+  }
+  #icon {
+    flex: 35%;
+    font-weight: 1000;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 15px 0px 0px 140px;
+    font-size: 42px;
+  }
+  #about {
+    flex: 65%;
+    text-align: end;
+    margin-top: 1.2rem;
+  }
+  .navBar {
+    font-weight: 700;
+    font-size: 28px;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(211, 234, 254);
+    -webkit-text-stroke: 1px black;
+    padding: 24px 24px 22px 23px;
+border-radius: 16px;
+border: 1px solid black;
+  }
+  

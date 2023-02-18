@@ -1,0 +1,76 @@
+#filter_box {
+  box-shadow: rgba(31, 122, 226, 0.542) 0px 0px 0px 2px,
+    rgba(24, 100, 187, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  padding: 15px;
+  margin: 40px;
+  border-radius: 16px;
+}
+form {
+  display: flex;
+  justify-content: space-evenly;
+}
+form > div {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px;
+  border-radius: 15px;
+  font-size: 14px;
+}
+form > label {
+  font-family: "Courier New", Courier, monospace;
+}
+form > input {
+  padding: 20px 30px 20px 30px;
+  background-color: transparent;
+  border: 1px solid black;
+  font-family: "Courier New", Courier, monospace;
+  border-radius: 10px;
+}
+
+select {
+  /* Reset Select */
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  font-family: "Courier New", Courier, monospace;
+  /* Personalize */
+  border: 1px solid transparent;
+  flex: 1;
+  font-size: 17px;
+  text-align: center;
+  padding: 0 1em;
+  color: rgb(126, 193, 252);
+  background-color: transparent;
+  background-image: none;
+  cursor: pointer;
+  height: 45px;
+  border-radius: 13px;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select wrapper */
+.select {
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  border-radius: 0.25em;
+  overflow: hidden;
+}
+/* Arrow */
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: #34495e;
+  transition: 0.25s all ease;
+  pointer-events: none;
+}
