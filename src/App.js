@@ -1,19 +1,21 @@
-
-import { Route, Router } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import House_list from "./comp/house_list";
-import NavBar from "./comp/NavBar";
-import Filter from './comp/filter';
-import { useState } from 'react';
+import Login from "./comp/login/login";
+import MainPage from "./comp/mainPage/main";
+import SignUp from "./comp/signup/signup";
+import Cart from "./comp/cart/cart";
 
 function App() {
-  let [filter_data,set_filter_data] = useState({});
-
-  return <div className="App">
-     <NavBar/>
-     <Filter set_filter_data={set_filter_data}/>
-    <House_list filter_data={filter_data}/>
-  </div>;
+  return (
+    <div className="App">
+       <Cart/>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/SignUp" element={<SignUp />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;

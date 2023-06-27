@@ -1,29 +1,52 @@
-import React from 'react';
-import "./NavBar.css"
+import React, { useEffect, useState } from "react";
+import "./NavBar.css";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { cartAction, logout } from "../redux/reducer";
 
 const NavBar = () => {
-    return ( <>
-      <div id="main">
-      <div id="icon">Booking.Dot</div>
-      <div id="about">
-        <a to="/" className="navBar">
-          Rent
-        </a>
-        <a to="/ABOUT" className="navBar">
-          Buy
-        </a>
-        <a to="/PROJECT" className="navBar">
-          Sell
-        </a>
-        <a to="/RESUME" className="navBar">
-          House-Type
-        </a>
-        <a href="https://www.google.com/" target="_blank" className="navBar">
-          Login
-        </a>
-      </div>
-    </div>
-    </> );
-}
+  const user = useSelector((state) => state.data.arr.logInDetails);
+  const dispatch = useDispatch();
  
+  const [open, setOpen] = useState(false);
+
+  const LogOut = () => {
+    dispatch(logout());
+    console.log("log");
+    console.log(user);
+  };
+
+  const OpenCart = () =>{
+    setOpen(!open);
+  }
+  useEffect(() => {
+    dispatch(cartAction(open));
+  }, [open]);
+
+  return (
+    <>
+      <div id="main">
+        <div id="icon">Booking.Dot</div>
+        <div id="about">
+          {/* <a to="/RESUME" className="navBar">
+          Saved House
+        </a> */}
+          {user.length == 0 ? (
+            <Link to="/login" className="navBar">
+              Login
+            </Link>
+          ) : (
+            <>
+              {user[0].loginStatus&& <button  className="navBar" onClick={OpenCart}>Cart</button>}
+              <button className="navBar" onClick={LogOut}>
+                Log Out
+              </button>
+            </>
+          )}
+        </div>
+      </div>
+    </>
+  );
+};
+
 export default NavBar;
